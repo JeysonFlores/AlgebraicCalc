@@ -1,0 +1,14 @@
+ {% macro Formularios(form) %}
+{{ form.label }}
+{{ form(**kwargs)|safe }}
+{% endmacro %}
+
+{% macro Resultado(List) %}
+{% for i in range(0,List|length) %}
+  <h1>X{{i+1}} = {{List[i]}}</h1>
+{% endfor %}
+{% endmacro %}
+
+{% macro Presentacion() %}
+<h1> Calculadora Algebraica </h1>
+{% endmacro%}

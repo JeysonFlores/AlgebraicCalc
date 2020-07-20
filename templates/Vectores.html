@@ -1,0 +1,44 @@
+<!html DOCTYPE>
+<head>
+	<title>
+			Calculadora
+	</title>
+<body>
+	<div class="todo">
+	<ul>
+        <li><a>Ecuaciones</a>
+            <ul>
+                <li><a href="/Ecuaciones">Ecuaciones</a></li>
+                <li><a href="/Desigualdades">Desigualdades</a></li>
+            </ul>
+        </li>
+        <li><a href="/Prods">Prod.Carts.</a></li>
+        <li><a>Matrices</a>
+            <ul>
+                <li><a href="/M1">1 Matriz</a></li>
+                <li><a href="/M2">2 Matrices</a></li>
+            </ul>
+        </li>
+        <li><a href="/Vectores">Vectores</a></li>
+        <li><a href="/FAQ">Acerca de</a></li>
+        <li id="Prin"> <a>Calculadora Algebraica</a> </li>
+    </ul>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pr.css')}}">
+	<script src="{{ url_for('static', filename='sweetalert2.all.min.js')}}"></script>
+	<script src="{{ url_for('static', filename='JsC.js')}}"></script>
+	<script src="{{ url_for('static', filename='fraction.js')}}"></script>
+	<script src="fraction.min.js"></script>
+	<div class="Aj">
+	<div class="MAIN">
+	<h1>Resolvedera de Matrices Python-Flask Version</h1>
+	</div>
+	<input class="mat" type="text" id="D"> <button onclick="GenVecA()">Generar Vector</button> <input class="mat" type="text" id="D2"><button onclick="GenVecB()">Generar Vector</button>
+	<p id="lectura"></p>
+	<p id="VEC1"></p>
+	<p id="VEC2"></p>
+	<h2><p id="res"></p></h2>
+	</div>
+</div>
+</body>
+</head>
+</html>

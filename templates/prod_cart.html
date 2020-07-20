@@ -1,0 +1,53 @@
+<!html DOCTYPE>
+<head>
+	<title>
+			Calculadora
+	</title>
+
+<body>
+	<ul>
+        <li><a>Ecuaciones</a>
+            <ul>
+                <li><a href="/Ecuaciones">Ecuaciones</a></li>
+                <li><a href="/Desigualdades">Desigualdades</a></li>
+            </ul>
+        </li>
+        <li><a href="/Prods">Prod.Carts.</a></li>
+        <li><a>Matrices</a>
+            <ul>
+                <li><a href="/M1">1 Matriz</a></li>
+                <li><a href="/M2">2 Matrices</a></li>
+            </ul>
+        </li>
+        <li><a href="/Vectores">Vectores</a></li>
+        <li><a href="/FAQ">Acerca de</a></li>
+        <li id="Prin"> <a>Calculadora Algebraica</a> </li>
+    </ul>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pr.css')}}">
+	<script src="{{ url_for('static', filename='sweetalert2.all.min.js')}}"></script>
+	<script src="{{ url_for('static', filename='JsC.js')}}"></script>
+	<script src="{{ url_for('static', filename='fraction.js')}}"></script>
+	<script src="fraction.min.js"></script>
+	{%from "macros.html" import Formularios%}
+	<div id="prt">
+	<form method="POST">
+		{{ Formularios(formu.A) }}
+		{{ Formularios(formu.B) }}
+	<button type="submit" id="prc" formmethod="POST"> A X B </button>
+	</form>
+	</div>
+	<div id="respd">
+	{% if error %}
+	 <h2>{{error}}</h2>
+	{% else %}
+	{% if axb %}
+ 	 
+ 	  <h2>AXB ={ {{ axb }} }</h2>
+ 	  <h2>{{funk }}</h2>
+ 
+	{% endif %}
+	{% endif %}
+</div>
+</body>
+</head>
+</html>

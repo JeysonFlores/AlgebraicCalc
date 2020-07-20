@@ -1,0 +1,22 @@
+<!html DOCTYPE>
+<head>
+	<title>
+			Calculadora
+	</title>
+	
+<body>
+	<script src="{{ url_for('static', filename='jr.js')}}"></script>
+	{%from "macros.html" import Formularios%}
+	{% from "macros.html" import Presentacion %}
+	{{ Presentacion() }}
+	<h1>Resolvedera de Matrices Python-Flask Version</h1>
+	<input type="button" id="1M" onclick="una_matriz()" value="Una Matriz">
+	<input type="button" id="2M" onclick="dos_matrices()" value="Dos Matrices">
+	<p id="lectura"></p>
+	<p id="Una_M"></p>
+	<p id="Dos_M"></p>
+	<h2><p id="res"></p></h2>
+	<h5>Alumnos: Flores Deras Jeyson Antonio, Murrieta Villalbazo Carlos Fernando, Espinoza Magaña Martin Alejandro, Moreno Lugo Carlos Renato</h5>
+</body>
+</head>
+</html>

@@ -1,0 +1,79 @@
+<!html DOCTYPE>
+<head>
+	<title>
+			Calculadora
+	</title>
+<body>
+	<link rel="stylesheet" href="{{ url_for('static', filename='pr.css')}}">
+	<script src="{{ url_for('static', filename='sweetalert2.all.min.js')}}"></script>
+	<script src="{{ url_for('static', filename='JsC.js')}}"></script>
+	<script src="{{ url_for('static', filename='fraction.js')}}"></script>
+	<script src="fraction.min.js"></script>
+	<ul>
+        <li><a>Ecuaciones</a>
+            <ul>
+                <li><a href="/Ecuaciones">Ecuaciones</a></li>
+                <li><a href="/Desigualdades">Desigualdades</a></li>
+            </ul>
+        </li>
+        <li><a href="/Prods">Prod.Carts.</a></li>
+        <li><a>Matrices</a>
+            <ul>
+                <li><a href="/M1">1 Matriz</a></li>
+                <li><a href="/M2">2 Matrices</a></li>
+            </ul>
+        </li>
+        <li><a href="/Vectores">Vectores</a></li>
+        <li><a href="/FAQ">Acerca de</a></li>
+        <li id="Prin"> <a>Calculadora Algebraica</a> </li>
+    </ul>
+	{%from "macros.html" import Formularios%}
+	{% from "macros.html" import Resultado%}
+	<form method="POST">
+		{{ Formularios(formu.Ecuacion) }}
+	<button id="bs" type="submit" formmethod="POST"> Calcular </button>
+	<div id="ect">
+	</form>
+	{% if res %}
+		{%if res == "Sintaxis Inválida" %}
+		   <script>
+		Swal.fire({
+  title: 'Error',
+  text: 'Sintaxis Inválida',
+  icon: 'error',
+  confirmButtonText: 'Ok'
+})
+    </script>
+ 	    {% else %}
+ 	    <div class="r">
+ 	  	   {{ Resultado(res) }}
+ 	  	   <div id="imge">
+ 	  	   <img src= "static/IMG_EC{{graf}}.png?{{no_cache}}" />
+ 	  	   </div>
+ 	  	  </div> 
+ 	  	   <script>
+		const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 1700,
+  timerProgressBar: false,
+  onOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: 'Operacion realizada correctamente'
+})
+    </script>
+
+        {% endif %}
+	{% endif %}
+	<h5>Powered By Python-Flask</h5>
+</div>
+</body>
+</head>
+</html>
